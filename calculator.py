@@ -22,8 +22,10 @@ while True:
 
     user_input = str(input(": "))
 
+    ### Quit Prgoram
     if user_input == "quit":
         break
+    ### Add
     elif user_input == "add":
         num_1 = get_input()
         num_2 = get_input()
@@ -34,6 +36,8 @@ while True:
             continue
         else:
             break
+
+    ### Subtraction
     elif user_input == "subtract":
         num_1 = get_input()
         num_2 = get_input()
@@ -44,6 +48,7 @@ while True:
             continue
         else:
             break
+    ### Multiplication
     elif user_input == "multiply":
         num_1 = get_input()
         num_2 = get_input()
@@ -55,21 +60,23 @@ while True:
         else:
             break
 
+    ### Divition
     elif user_input == "divide":
-        num_1 = get_input()
-        num_2 = get_input()
+        try:
+            num_1 = get_input()
+            num_2 = get_input()
 
-        if num_1 == 0 or num_2 == 0:
-            print("can't Divide Zero")
-            break
-        else:
             result = num_1 / num_2
             print_result(result)
+        except ZeroDivisionError:
+            print("Ann Error Occurred")
+            print("due to zero division")
+            continue
 
-            if input("to continue or quit press [y/n] : ") == "y":
-                continue
-            else:
-                break
+        if input("to continue or quit press [y/n] : ") == "y":
+            continue
+        else:
+            break
 
     else:
         print("Unknown Input")
